@@ -3,21 +3,21 @@ const mongoose = require("mongoose");
 const PinSchema = new mongoose.Schema({
     username: {
         type: String,
-        require: true,
-    },
+        required: true,
+      },
     title: {
         type: String,
-        require: true,
-        min: 3,
+        required: [true, "Please add a title"],
+        minlength: [3, "Title must have at least 3 characters."]
     },
     desc: {
         type: String,
-        require: true,
-        min: 3,
+        required: true,
+        minlength: [3, "Description must have at least 3 characters."]
     },
     rating: {
         type: Number,
-        require: true,
+        required: true,
         min: 0,
         max: 5,
     },

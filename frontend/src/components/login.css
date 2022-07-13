@@ -1,0 +1,57 @@
+.loginContainer {
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.logo {
+    color: rgb(30, 255, 0);
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.loginBtn {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+
+.loginForm {
+    margin-top: 20px;
+}
+
+.usernameE {
+    font-size: 16px;
+}
+
+.passwordE {
+    font-size: 16px;
+}
+
+
+.loginRegister {
+    margin-top: 5px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+}
