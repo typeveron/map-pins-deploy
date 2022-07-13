@@ -1,9 +1,17 @@
 const express = require("express");
+
+const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const app = express();
-const pinRoute = require("./routes/pins");
-const userRoute = require("./routes/users");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const errorHandler = require("./middleware/error");
+
+//Import Routes
+const Routes = require('./routes/routes');
 
 dotenv.config();
 
@@ -14,10 +22,18 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true}).then(() => {
 })
 .catch((err) => console.log(err));
 
+//middleware
+app.use(express.json());
+app.use(helmet());
+app.use(bodyParser.json());
+app.use(morgan("dev"));
+app.use(cookieParser());
+app.use(cors());
+app.use("/api", Routes);
 
-app.use("/api/users", userRoute);
-app.use("/api/pins", pinRoute)
+//Error Middleware
+app.use(errorHandler);
 
-app.listen(7700, ()=> {
+app.listen(8800, ()=> {
     console.log("Backend server is running!")
 })
