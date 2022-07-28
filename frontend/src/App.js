@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, {Fragment}  from 'react';
 import "./app.css"
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -15,7 +15,7 @@ import {
 function App() {
 
   return (
-    <>
+    <Fragment>
     <ToastContainer/>
     <BrowserRouter>
     <Routes>
@@ -27,7 +27,7 @@ function App() {
     />
     </Routes>
     </BrowserRouter>
-    </>
+    </Fragment>
   );
 }
 

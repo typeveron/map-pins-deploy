@@ -19,33 +19,34 @@ function MapPage() {
   const [desc, setDesc] = useState(null);
   const [star, setStar] = useState(0);
   const [viewport, setViewport] = useState({
-    latitude: 45,
-    longitude: 15,
-    zoom: 4,
   });
 
 
   const navigate = useNavigate();
  
+  //handles popup click
   const handleMarkerClick = (id, lat, long) => {
     setCurrentPlaceId(id);
+    console.log("click being called.", lat, long);
     setViewport({ ...viewport, latitude: lat, longitude: long });
+    console.log(viewport);
   };
 
-  const handleAddClick = (e) => {
+  const handleDoubleClick = (e) => {
     try {
-    const [long, lat] = e.lngLat;
+    const [long, lat] = e.lngLat.toArray();
     setNewPlace({
       lat,
-      long,
+      long
     });
   } catch (err) {
     console.log(`this is the error: ${err}`);
-    
-    console.log(newPlace);
+    //gives me lat and long coordinates
     console.log(e.lngLat);
+    console.log(e);
   }
   };
+
 
   const handleSubmit = async (e) => {
     console.log(`this is my username: ${profile.username}`)
@@ -94,14 +95,16 @@ function MapPage() {
     })
 },[]);
 
+
   const logOut = () => {
     axios.get('/api/logout')
-    .then(result=> {
-      toast.success('Logged out successfully');
+    .then(result => {
       localStorage.removeItem('token');
-      navigate("/login");
+      toast.success('Logged out successfully');
+      navigate('/login');
     })
     .catch(error => {
+      toast.message('Failure to logout');
       console.log(error);
     })
 } 
@@ -111,18 +114,16 @@ function MapPage() {
 
   
   return (
-  <div className="wholeMap" style={{ height: "100vh", width: "100%"}}>
+  <div className='App' style={{ height: "100vh", width: "100%" }}>
   <Map
   /* this next line of code causes map to not zoom or move */
-  {...viewport}
   mapboxAccessToken={process.env.REACT_APP_MAPBOX}
   width="100%"
   height="100%"
   transitionDuration="200"
   mapStyle="mapbox://styles/mapbox/streets-v9"
   onViewportChange={(viewport) => setViewport(viewport)}
-  scrollZoom="true"
-  onDblClick={handleAddClick}
+  onDblClick={handleDoubleClick}
   >
   {pins.map((p)=>(
   <Fragment>
@@ -130,26 +131,32 @@ function MapPage() {
   <Marker
   latitude={p.lat}
   longitude={p.long}
+  onDrag={false}
   offsetLeft={-3.5 * viewport.zoom}
   offsetTop={-7 * viewport.zoom}
   >
 
-  <Room style={{ fontsize: viewport.zoom * 7, color: "slateblue", cursor: "pointer" }}
+  <Room style={{ 
+    fontsize: 7 * viewport.zoom, 
+    color: profile.username === p.username ? 'black' : 'red',
+    cursor: "pointer"
+}}
   onClick={()=>handleMarkerClick(p._id, p.lat,p.long)}
   />
 
   </Marker>
 
-  {p.id === currentPlaceId && (
+  {p._id === currentPlaceId && (
  
   <Popup 
          key={p._id}
          latitude={p.lat}
          longitude={p.long}
+         //when close markers move
          closeButton={true}
          closeOnClick={false}
-         anchor="left"
          onClose={()=>setCurrentPlaceId(null)}
+         anchor="left"
          >
         <div className='card'>
         <label>Place</label>
@@ -175,13 +182,14 @@ function MapPage() {
   <Marker
   latitude={newPlace.lat}
   longitude={newPlace.long}
+  onDrag={false}
   offsetLeft={-3.5 * viewport.zoom}
   offsetTop={-7 * viewport.zoom}
 >
   <Room
     style={{
-      fontSize: 7 * viewport.zoom,
-      color: "tomato",
+      fontSize: viewport.zoom * 7,
+      color: "black",
       cursor: "pointer",
     }}
   />
@@ -220,13 +228,13 @@ function MapPage() {
                   <button className="submitButton" onClick={handleSubmit}>
                     Add Pin
                   </button>
-                  <button className='logout' onClick={logOut}>Logout</button>
                 </form>
               </div>
   </Popup>
 
   </Fragment>
   )}
+  <button className='logout' onClick={logOut}>Logout</button>
   </Map>
   </div>
   );

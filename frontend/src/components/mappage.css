@@ -1,19 +1,15 @@
-.wholeMap {
-  
-}
-
 .card {
-    width: 250px;
-    height: 325px;
+    width: 350px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 label {
-    color: rgb(11, 61, 127);
+    color: rgb(11, 127, 11);
     font-size: 13px;
-    border-bottom: 5px solid rgb(11, 61, 127);
+    border-bottom: 5px solid rgb(11, 127, 11);
     margin: 3px 0
 }
 
@@ -30,8 +26,8 @@ label {
 }
 
 form {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,15 +61,20 @@ form {
     padding: 5px;
     border-radius: 5px;
     color: white;
-    background-color: tomato;
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
   }
+
   
-  .buttons,
   .logout {
     position: absolute;
     top: 10px;
     right: 10px;
+    width: 110px;
+    padding: 5px;
+    border: none;
+    background-color: rgb(4, 255, 63);
+    cursor: pointer;
   }
   
   .button {
@@ -89,25 +90,7 @@ form {
     outline: none;
   }
 
-  
-  .login{
-    background-color: teal;
-    margin-right: 10px;
-  }
-  
-  .register{
-    background-color: slateblue;
-  }
 
-  .logOut {
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    background-color: tomato;
-    display: inline-block;
-  }
 
   .borderB {
     width: 100%;
