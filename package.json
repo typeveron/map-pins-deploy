@@ -12,6 +12,10 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.16"
   },
+  "engines": {
+    "node": "12.11.1",
+    "npm": "6.14.8"
+  },
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
