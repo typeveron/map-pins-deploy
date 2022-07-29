@@ -1,6 +1,7 @@
 const express = require("express");
 
 const app = express();
+const PORT = process.env.PORT || 8800
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
@@ -17,7 +18,7 @@ dotenv.config();
 
 app.use(express.json())
 
-mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true}).then(() => {
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URL, {useNewUrlParser: true}).then(() => {
     console.log("MongoDB Connected")
 })
 .catch((err) => console.log(err));
@@ -34,6 +35,10 @@ app.use("/api", Routes);
 //Error Middleware
 app.use(errorHandler);
 
-app.listen(8800, ()=> {
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+}
+
+app.listen(PORT, ()=> {
     console.log("Backend server is running!")
 })
