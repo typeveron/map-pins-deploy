@@ -6,8 +6,7 @@ import {format} from 'timeago.js';
 import "./mappage.css";
 import {toast} from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
-import {ErrorBoundary} from 'react-error-boundary';
-import ErrorHandler from './ErrorHandler';
+
 
 
 function MapPage() {
@@ -121,7 +120,7 @@ function MapPage() {
   width="100%"
   height="100%"
   transitionDuration="200"
-  mapStyle="mapbox://styles/mapbox/streets-v9"
+  mapStyle="mapbox://styles/mapcake/cl65z024z004614m8h2uduiot"
   onViewportChange={(viewport) => setViewport(viewport)}
   onDblClick={handleDoubleClick}
   >
@@ -138,7 +137,7 @@ function MapPage() {
 
   <Room style={{ 
     fontsize: 7 * viewport.zoom, 
-    color: profile.username === p.username ? 'black' : 'red',
+    color: profile.username === p.username ? 'red' : 'cyan',
     cursor: "pointer"
 }}
   onClick={()=>handleMarkerClick(p._id, p.lat,p.long)}
@@ -189,7 +188,7 @@ function MapPage() {
   <Room
     style={{
       fontSize: viewport.zoom * 7,
-      color: "black",
+      color: "red",
       cursor: "pointer",
     }}
   />
