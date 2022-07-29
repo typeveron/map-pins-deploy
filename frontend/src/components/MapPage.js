@@ -81,7 +81,7 @@ function MapPage() {
   }, []);
 
   useEffect(()=>{
-    fetch('/api/getme')
+    fetch('/getme')
     .then(res => {
       return res.json()
     })
@@ -96,7 +96,7 @@ function MapPage() {
 
 
   const logOut = () => {
-    axios.get('/api/logout')
+    axios.get('/logout')
     .then(result => {
       localStorage.removeItem('token');
       toast.success('Logged out successfully');
