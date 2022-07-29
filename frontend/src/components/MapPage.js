@@ -60,7 +60,7 @@ function MapPage() {
     };
 
     try {
-      const res = await axios.post("/api/createpin", newPin);
+      const res = await axios.post("/createpin", newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -71,7 +71,7 @@ function MapPage() {
   useEffect(() => {
     const getPins = async ()=> {
       try {
-        const res = await axios.get("/api/getpins");
+        const res = await axios.get("/getpins");
         setPins(res.data);
       } catch (err) {
         console.log(err)

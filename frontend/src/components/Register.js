@@ -23,7 +23,7 @@ export default function Register({setShowRegister}) {
       };
 
       try {
-         const {data} = await axios.post("/api/signup", newUser);
+         const {data} = await axios.post("/signup", newUser);
          toast.success("Sign in successfully");
             //save user in local storage
             if (typeof window !== "undefined") {
