@@ -1,8 +1,7 @@
-import React, {useState, useRef} from 'react'
+import React, {useRef} from 'react'
 import "./register.css"
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import axios from "axios";
-import CancelIcon from '@mui/icons-material/Cancel';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
