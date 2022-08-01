@@ -19,6 +19,9 @@ dotenv.config();
 
 app.use(express.json())
 
+//Welcome message 
+app.get('/', (req,res) => res.send('Welcome to our API'));
+
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URL, {useNewUrlParser: true}).then(() => {
     console.log("MongoDB Connected")
 })
@@ -36,13 +39,6 @@ app.use("/api", Routes);
 //Error Middleware
 app.use(errorHandler);
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('frontend/build'));
-}
-
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'addyourpins', 'build', 'index.html'));
-});
 
 app.listen(PORT, ()=> {
     console.log("Backend server is running!")
