@@ -60,7 +60,7 @@ function MapPage() {
     };
 
     try {
-      const res = await axios.post("/createpin", newPin);
+      const res = await axios.post("https://add-pins-to-map.herokuapp.com/createpin", newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -71,7 +71,7 @@ function MapPage() {
   useEffect(() => {
     const getPins = async ()=> {
       try {
-        const res = await axios.get("/getpins");
+        const res = await axios.get("https://add-pins-to-map.herokuapp.com/getpins");
         setPins(res.data);
       } catch (err) {
         console.log(err)
@@ -81,7 +81,7 @@ function MapPage() {
   }, []);
 
   useEffect(()=>{
-    fetch('/getme')
+    fetch('https://add-pins-to-map.herokuapp.com/getme')
     .then(res => {
       return res.json()
     })
@@ -96,7 +96,7 @@ function MapPage() {
 
 
   const logOut = () => {
-    axios.get('/logout')
+    axios.get('https://add-pins-to-map.herokuapp.com/logout')
     .then(result => {
       localStorage.removeItem('token');
       toast.success('Logged out successfully');

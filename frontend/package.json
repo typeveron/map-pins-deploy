@@ -2,7 +2,7 @@
   "name": "map-places",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost:3000/login",
+  "homepage": "https://add-pins-to-map.herokuapp.com/login",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -29,10 +29,6 @@
     "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.4"
   },
-  "engines": {
-    "node": "16.14.2",
-    "npm": "8.5.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -56,6 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:8800/api"
+  }
 }

@@ -23,7 +23,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-          const {data} = await axios.post('/signin', {
+          const {data} = await axios.post('https://add-pins-to-map.herokuapp.com/signin', {
             username, password
           });
           console.log(data);

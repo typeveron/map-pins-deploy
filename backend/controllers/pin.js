@@ -1,4 +1,4 @@
-const Pin = require("../models/pin");
+const Pin = require("../models/Pin");
 const router = require("express").Router();
 
 

@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-const PORT = process.env.PORT || 8800
+const PORT = process.env.PORT || 8500
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
@@ -22,7 +22,11 @@ app.use(express.json())
 //Welcome message 
 app.get('/', (req,res) => res.send('Welcome to our API'));
 
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URL, {useNewUrlParser: true}).then(() => {
+app.get('/greeting', (req,res) => {
+    res.json({greeting: 'Hello there'})
+});
+
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
     console.log("MongoDB Connected")
 })
 .catch((err) => console.log(err));
