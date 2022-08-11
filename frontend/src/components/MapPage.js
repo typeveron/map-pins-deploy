@@ -1,6 +1,6 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import Map, {Marker, Popup} from 'react-map-gl';
-import { Room, Star } from "@material-ui/icons";
+import { Room, Star } from "@mui/icons-material";
 import axios from 'axios';
 import {format} from 'timeago.js';
 import "./mappage.css";
