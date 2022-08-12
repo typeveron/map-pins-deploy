@@ -10,6 +10,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
+const path = require('path');
 
 
 //Import Routes
@@ -25,6 +26,11 @@ app.get('/', (req,res) => res.send('Welcome to our API'));
 app.get('/greeting', (req,res) => {
     res.json({greeting: 'Hello there'})
 });
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname + '/client/build/index.html'))
+  })
+
 
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
     console.log("MongoDB Connected")
