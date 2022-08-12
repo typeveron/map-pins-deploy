@@ -81,7 +81,7 @@ function MapPage() {
   }, []);
 
   useEffect(()=>{
-    fetch('/api/getme')
+    fetch("https://add-pins-to-map.herokuapp.com/api/getpins")
     .then(res => {
       return res.json()
     })
