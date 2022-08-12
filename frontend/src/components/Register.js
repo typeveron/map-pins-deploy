@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
-export default function Register({setShowRegister}) {
+export default function Register() {
 
   const nameRef = useRef()
   const emailRef = useRef()
@@ -22,7 +22,7 @@ export default function Register({setShowRegister}) {
       };
 
       try {
-         const {data} = await axios.post("https://add-pins-to-map.herokuapp.com/api/signup", newUser);
+         const {data} = await axios.post('https://add-pins-to-map.herokuapp.com/api/signup', newUser);
          toast.success("Sign in successfully");
             //save user in local storage
             if (typeof window !== "undefined") {

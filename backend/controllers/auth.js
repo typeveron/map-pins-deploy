@@ -53,10 +53,10 @@ exports.signin = async (req, res, next)=> {
 
 const generateToken = async (user, statusCode, res) => {
     const token = await user.jwtGenerateToken();
-    var twoHours = 7200000;
+    const time = 72000
     const options = {
         httpOnly: true,
-        expires: new Date(Date.now() + twoHours)
+        expires: new Date(Date.now() + time)
     };
     res.status(statusCode)
         .cookie('token', token, options)

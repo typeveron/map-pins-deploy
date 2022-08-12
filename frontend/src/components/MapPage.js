@@ -60,8 +60,7 @@ function MapPage() {
     };
 
     try {
-      navigate("/map");
-      const res = await axios.post("https://add-pins-to-map.herokuapp.com/api/createpin", newPin);
+      const res = await axios.post('https://add-pins-to-map.herokuapp.com/api/createpin', newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -72,7 +71,7 @@ function MapPage() {
   useEffect(() => {
     const getPins = async ()=> {
       try {
-        const res = await axios.get("https://add-pins-to-map.herokuapp.com/api/getpins");
+        const res = await axios.get('https://add-pins-to-map.herokuapp.com/api/getpins');
         setPins(res.data);
       } catch (err) {
         console.log(err)
