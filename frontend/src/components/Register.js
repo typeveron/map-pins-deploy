@@ -44,7 +44,7 @@ export default function Register() {
     <input type='email' className='emailR' placeholder='email' ref={emailRef}/>
     <input type='password' className='passwordR' placeholder='password' ref={passwordRef}/>
     <button className='registerBtn'>Register</button>
-    <button onClick={() => navigate('/login')} className='backToLogin'>Back To Login</button>
+    <button onClick={() => navigate('/')} className='backToLogin'>Back To Login</button>
     </form>
     </div>
   )
