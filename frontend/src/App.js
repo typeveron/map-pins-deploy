@@ -21,7 +21,7 @@ function App() {
     <Routes>
     <Route path="/map" element={<MapPage/>}
     />
-    <Route path="/login" element={<Login/>}
+    <Route path="/" element={<Login/>}
     />
     <Route path="/register" element={<Register/>}
     />

@@ -2,7 +2,6 @@
   "name": "map-places",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://add-pins-to-map.herokuapp.com/login",
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.0",
