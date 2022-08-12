@@ -22,7 +22,7 @@ export default function Register() {
       };
 
       try {
-         const {data} = await axiosInstance.post('signup', newUser);
+         const {data} = await axiosInstance.post('/signup', newUser);
          toast.success("Sign in successfully");
             //save user in local storage
             if (typeof window !== "undefined") {
@@ -31,6 +31,7 @@ export default function Register() {
           navigate("/map");
       } catch (err) {
         toast.error(err.response.data.error);
+        console.log(err);
       }
   }
   
