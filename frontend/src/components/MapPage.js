@@ -5,7 +5,7 @@ import {format} from 'timeago.js';
 import "./mappage.css";
 import {toast} from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
-import {axiosInstance} from '../config';
+import {axios} from 'axios';
 
 
 function MapPage() {
@@ -59,7 +59,7 @@ function MapPage() {
     };
 
     try {
-      const res = await axiosInstance.post('/createpin', newPin);
+      const res = await axios.post(process.env.CREATE_PIN_URL, newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -70,7 +70,7 @@ function MapPage() {
   useEffect(() => {
     const getPins = async ()=> {
       try {
-        const res = await axiosInstance.get('/getpins');
+        const res = await axios.get(process.env.ALL_PINS_URL);
         setPins(res.data);
       } catch (err) {
         console.log(err)
@@ -80,7 +80,7 @@ function MapPage() {
   }, []);
 
   useEffect(()=>{
-    axiosInstance.fetch("/getme")
+    fetch(process.env.USER_URL)
     .then(res => {
       return res.json()
     })
@@ -95,7 +95,7 @@ function MapPage() {
 
 
   const logOut = () => {
-    axiosInstance.get('/logout')
+    axios.get(process.env.LOGOUT_URL)
     .then(result => {
       localStorage.removeItem('token');
       toast.success('Logged out successfully');

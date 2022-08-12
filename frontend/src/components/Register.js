@@ -3,7 +3,7 @@ import "./register.css"
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
-import {axiosInstance} from '../config';
+import {axios} from 'axios';
 
 export default function Register() {
 
@@ -22,7 +22,7 @@ export default function Register() {
       };
 
       try {
-         const {data} = await axiosInstance.post('/signup', newUser);
+         const {data} = await axios.post(process.env.REGISTER_URL, newUser);
          toast.success("Sign in successfully");
             //save user in local storage
             if (typeof window !== "undefined") {

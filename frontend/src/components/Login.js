@@ -3,7 +3,7 @@ import "./login.css"
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import {useNavigate} from "react-router-dom";
 import { toast } from "react-toastify";
-import {axiosInstance} from '../config';
+import {axios} from 'axios';
 
 export default function Login() {
 
@@ -23,7 +23,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-          const {data} = await axiosInstance.post('/signin', {
+          const {data} = await axios.post(process.env.LOGIN_URL, {
             username, password
           });
           console.log(data);
@@ -42,6 +42,8 @@ export default function Login() {
         toast.error(error.response.data.error);
       }
     } 
+
+
   
   return (
     <div className='loginContainer'>
