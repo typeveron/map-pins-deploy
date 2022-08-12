@@ -100,7 +100,7 @@ function MapPage() {
     .then(result => {
       localStorage.removeItem('token');
       toast.success('Logged out successfully');
-      navigate('/login');
+      navigate('/');
     })
     .catch(error => {
       toast.message('Failure to logout');

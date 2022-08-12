@@ -27,7 +27,7 @@ exports.signin = async (req, res, next)=> {
         const {username, password} = req.body;
         //if no username and password
         if (!username || !password) {
-            return next(new ErrorResponse(`Username and Password are required`, 404))
+            return next(new ErrorResponse(`Username and password are required`, 404))
         }
         //check username
         const user = await User.findOne({username});
@@ -53,10 +53,10 @@ exports.signin = async (req, res, next)=> {
 
 const generateToken = async (user, statusCode, res) => {
     const token = await user.jwtGenerateToken();
-    var hour = 3600000;
+    var twoHours = 7200000;
     const options = {
         httpOnly: true,
-        expires: new Date(Date.now() + hour)
+        expires: new Date(Date.now() + twoHours)
     };
     res.status(statusCode)
         .cookie('token', token, options)
