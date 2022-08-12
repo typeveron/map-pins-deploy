@@ -1,7 +1,6 @@
 import React, {useRef} from 'react'
 import "./register.css"
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
-import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import {axiosInstance} from '../config';
