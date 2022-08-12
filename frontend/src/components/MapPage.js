@@ -116,7 +116,7 @@ function MapPage() {
   <div className='App' style={{ height: "100vh", width: "100%" }}>
   <Map
   /* this next line of code causes map to not zoom or move */
-  mapboxAccessToken={process.env.REACT_APP_MAPBOX}
+  mapboxAccessToken="pk.eyJ1IjoibWFwY2FrZSIsImEiOiJjbDZqeWxoMzQxMmgwM2NwZHNmcDQ5ZGV1In0.GlymWECgEZJQpyyUtbPHug"
   width="100%"
   height="100%"
   transitionDuration="200"
