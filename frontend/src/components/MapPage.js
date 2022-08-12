@@ -120,7 +120,7 @@ function MapPage() {
   width="100%"
   height="100%"
   transitionDuration="200"
-  mapStyle="mapbox://styles/mapcake/cl65z024z004614m8h2uduiot"
+  mapStyle="mapbox://styles/mapcake/cl6qub4s4000414oex2k1b2zn"
   onViewportChange={(viewport) => setViewport(viewport)}
   onDblClick={handleDoubleClick}
   >

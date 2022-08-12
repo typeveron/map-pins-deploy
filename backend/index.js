@@ -27,9 +27,6 @@ app.get('/greeting', (req,res) => {
     res.json({greeting: 'Hello there'})
 });
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname + '/client/build/index.html'))
-  })
 
 
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
