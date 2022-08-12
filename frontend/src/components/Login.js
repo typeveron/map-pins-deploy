@@ -20,6 +20,8 @@ export default function Login() {
     setValues({...values, [name]: e.target.value})
   }
 
+  console.log(process.env.LOGIN_URL);
+
   const handleSubmit = async (e) => {
       e.preventDefault();
       try {
