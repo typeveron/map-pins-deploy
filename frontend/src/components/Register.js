@@ -4,6 +4,7 @@ import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+import {axiosInstance} from '../config';
 
 export default function Register() {
 
@@ -22,7 +23,7 @@ export default function Register() {
       };
 
       try {
-         const {data} = await axios.post('https://add-pins-to-map.herokuapp.com/api/signup', newUser);
+         const {data} = await axiosInstance.post('signup', newUser);
          toast.success("Sign in successfully");
             //save user in local storage
             if (typeof window !== "undefined") {

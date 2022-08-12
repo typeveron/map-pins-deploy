@@ -6,7 +6,7 @@ import {format} from 'timeago.js';
 import "./mappage.css";
 import {toast} from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
-
+import {axiosInstance} from '../config';
 
 
 function MapPage() {
@@ -60,7 +60,7 @@ function MapPage() {
     };
 
     try {
-      const res = await axios.post('https://add-pins-to-map.herokuapp.com/api/createpin', newPin);
+      const res = await axiosInstance.post('/createpin', newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -71,7 +71,7 @@ function MapPage() {
   useEffect(() => {
     const getPins = async ()=> {
       try {
-        const res = await axios.get('https://add-pins-to-map.herokuapp.com/api/getpins');
+        const res = await axiosInstance.get('/getpins');
         setPins(res.data);
       } catch (err) {
         console.log(err)
@@ -81,7 +81,7 @@ function MapPage() {
   }, []);
 
   useEffect(()=>{
-    fetch("https://add-pins-to-map.herokuapp.com/api/getme")
+    axiosInstance.fetch("/getme")
     .then(res => {
       return res.json()
     })
@@ -96,7 +96,7 @@ function MapPage() {
 
 
   const logOut = () => {
-    axios.get('https://add-pins-to-map.herokuapp.com/api/logout')
+    axiosInstance.get('/logout')
     .then(result => {
       localStorage.removeItem('token');
       toast.success('Logged out successfully');

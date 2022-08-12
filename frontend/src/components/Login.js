@@ -4,6 +4,7 @@ import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import { toast } from "react-toastify";
+import {axiosInstance} from '../config';
 
 export default function Login() {
 
@@ -23,7 +24,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-          const {data} = await axios.post('https://add-pins-to-map.herokuapp.com/api/signin', {
+          const {data} = await axiosInstance.post('/signin', {
             username, password
           });
           console.log(data);
