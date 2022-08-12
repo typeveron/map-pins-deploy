@@ -60,7 +60,7 @@ function MapPage() {
     };
 
     try {
-      navigate("/");
+      navigate("/map");
       const res = await axios.post("https://add-pins-to-map.herokuapp.com/api/createpin", newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
