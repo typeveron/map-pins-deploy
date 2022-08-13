@@ -5,7 +5,7 @@ import {format} from 'timeago.js';
 import "./mappage.css";
 import {toast} from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
-import {axios} from 'axios';
+import axios from 'axios';
 
 
 function MapPage() {

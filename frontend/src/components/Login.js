@@ -3,7 +3,7 @@ import "./login.css"
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import {useNavigate} from "react-router-dom";
 import { toast } from "react-toastify";
-import {axios} from 'axios';
+import axios from 'axios';
 
 export default function Login() {
 
@@ -20,12 +20,11 @@ export default function Login() {
     setValues({...values, [name]: e.target.value})
   }
 
-  console.log(process.env.REACT_APP_LOGIN);
 
   const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-          const {data} = await axios.post("https://add-pins-to-map.herokuapp.com/api/signin", {
+          const {data} = await axios.post(process.env.REACT_APP_LOGIN, {
             username, password
           });
           console.log(data);
@@ -40,7 +39,7 @@ export default function Login() {
             navigate("/map");
           }
       } catch (error) {
-        console.log(error);
+        console.log("this is the error: " , error);
         toast.error(error.response.data.error);
       }
     } 
