@@ -89,7 +89,7 @@ function MapPage() {
       setProfile(result.user);
     })
     .catch(error => {
-      console.log(error);
+      console.log("this is the error for getme" ,error);
     })
 },[]);
 

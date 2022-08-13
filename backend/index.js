@@ -6,11 +6,16 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
-app.options('*', cors());
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+  });
 
 
 //Import Routes
@@ -40,7 +45,6 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
-app.use(cors());
 app.use("/api", Routes);
 
 //Error Middleware
