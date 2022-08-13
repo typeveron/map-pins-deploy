@@ -10,7 +10,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
-
+app.options('*', cors());
 
 
 //Import Routes
