@@ -59,7 +59,7 @@ function MapPage() {
     };
 
     try {
-      const res = await axios.post(process.env.CREATE_PIN_URL, newPin);
+      const res = await axios.post(process.env.REACT_APP_CREATE, newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -70,7 +70,7 @@ function MapPage() {
   useEffect(() => {
     const getPins = async ()=> {
       try {
-        const res = await axios.get(process.env.ALL_PINS_URL);
+        const res = await axios.get(process.env.REACT_APP_ALL);
         setPins(res.data);
       } catch (err) {
         console.log(err)
@@ -80,7 +80,7 @@ function MapPage() {
   }, []);
 
   useEffect(()=>{
-    fetch(process.env.USER_URL)
+    fetch(process.env.REACT_APP_USER)
     .then(res => {
       return res.json()
     })
@@ -95,7 +95,7 @@ function MapPage() {
 
 
   const logOut = () => {
-    axios.get(process.env.LOGOUT_URL)
+    axios.get(process.env.REACT_APP_LOGOUT)
     .then(result => {
       localStorage.removeItem('token');
       toast.success('Logged out successfully');

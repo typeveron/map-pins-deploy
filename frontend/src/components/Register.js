@@ -22,7 +22,7 @@ export default function Register() {
       };
 
       try {
-         const {data} = await axios.post(process.env.REGISTER_URL, newUser);
+         const {data} = await axios.post(process.env.REACT_APP_REGISTER, newUser);
          toast.success("Sign in successfully");
             //save user in local storage
             if (typeof window !== "undefined") {
