@@ -25,7 +25,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-          const {data} = await axios.post(process.env.REACT_APP_LOGIN, {
+          const {data} = await axios.post("https://add-pins-to-map.herokuapp.com/api/signin", {
             username, password
           });
           console.log(data);
