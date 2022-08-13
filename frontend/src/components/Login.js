@@ -20,7 +20,7 @@ export default function Login() {
     setValues({...values, [name]: e.target.value})
   }
 
-  console.log(process.env.LOGIN_URL);
+  console.log(process.env.REACT_APP_LOGIN);
 
   const handleSubmit = async (e) => {
       e.preventDefault();
