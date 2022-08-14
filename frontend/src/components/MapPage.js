@@ -79,9 +79,12 @@ function MapPage() {
       getPins();
   }, []);
 
+  
+
   useEffect(()=>{
-    fetch(process.env.REACT_APP_USER)
-    .mode("no-cors")
+    const data = fetch(process.env.REACT_APP_USER, {
+      mode: 'no-cors'
+    })
     .then(res => {
       return res.json()
     })
@@ -92,6 +95,7 @@ function MapPage() {
     .catch(error => {
       console.log("this is the error for getme" ,error);
     })
+    return data.json();
 },[]);
 
 
