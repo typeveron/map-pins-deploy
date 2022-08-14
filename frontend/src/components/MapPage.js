@@ -81,6 +81,7 @@ function MapPage() {
 
   useEffect(()=>{
     fetch(process.env.REACT_APP_USER)
+    .mode("no-cors")
     .then(res => {
       return res.json()
     })
