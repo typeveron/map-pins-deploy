@@ -79,12 +79,8 @@ function MapPage() {
       getPins();
   }, []);
 
-  
-
   useEffect(()=>{
-    const data = fetch(process.env.REACT_APP_USER, {
-      mode: 'no-cors'
-    })
+    fetch(process.env.REACT_APP_USER)
     .then(res => {
       return res.json()
     })
@@ -93,10 +89,26 @@ function MapPage() {
       setProfile(result.user);
     })
     .catch(error => {
-      console.log("this is the error for getme" ,error);
+      console.log(error);
     })
-    return data.json();
 },[]);
+
+//   useEffect(()=>{
+//     const data = fetch(process.env.REACT_APP_USER, {
+//       mode: 'no-cors'
+//     })
+//     .then(res => {
+//       return res.json()
+//     })
+//     .then(result=>{
+//       console.log(result);
+//       setProfile(result.user);
+//     })
+//     .catch(error => {
+//       console.log("this is the error for getme" ,error);
+//     })
+//     return data.json()
+// },[]);
 
 
   const logOut = () => {
