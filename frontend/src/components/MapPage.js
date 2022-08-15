@@ -93,22 +93,22 @@ function MapPage() {
     })
 },[]);
 
-//   useEffect(()=>{
-//     const data = fetch(process.env.REACT_APP_USER, {
-//       mode: 'no-cors'
-//     })
-//     .then(res => {
-//       return res.json()
-//     })
-//     .then(result=>{
-//       console.log(result);
-//       setProfile(result.user);
-//     })
-//     .catch(error => {
-//       console.log("this is the error for getme" ,error);
-//     })
-//     return data.json()
-// },[]);
+  useEffect(()=>{
+    const data = fetch(process.env.REACT_APP_USER, {
+      mode: 'no-cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(result=>{
+      console.log(result);
+      setProfile(result.user);
+    })
+    .catch(error => {
+      console.log("this is the error for getme" ,error);
+    })
+    return data.json()
+},[]);
 
 
   const logOut = () => {

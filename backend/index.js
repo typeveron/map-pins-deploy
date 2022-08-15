@@ -9,12 +9,15 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
-const cors = require('cors');
+const cors = require("cors");
 
 //setting cors
-const corsOptions = {
-    origin: 'https://map-pins.netlify.app'
-  }
+// const corsOptions = {
+//     origin: 'https://map-pins.netlify.app',
+//     preflightContinue:false,
+//     credentials: true,
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   }
 
 
 
@@ -23,11 +26,10 @@ const Routes = require('./routes/routes');
 
 dotenv.config();
 
-app.use(express.json())
 
 
 //middleware
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
 app.use(bodyParser.json());
@@ -40,6 +42,7 @@ app.use("/api", Routes);
 app.get('/', (req,res) => {
     console.log("Welcome to the API.")
 });
+
 
 
 app.get('/greeting', (req,res) => {

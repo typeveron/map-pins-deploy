@@ -12,4 +12,5 @@ router.get('/user/:id', singleUser);
 router.post('/createpin', createPin);
 router.get('/getpins', getPins);
 
+
 module.exports = router;
