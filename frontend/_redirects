@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "https://add-pins-to-map.herokuapp.com/api/getme"
-  to = "https://map-pins.netlify.app/map"
-  status = 200
