@@ -16,7 +16,6 @@ function MapPage() {
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [star, setStar] = useState(0);
-  const [data, setData] = useState([]);
   const [viewport, setViewport] = useState({
   });
 
