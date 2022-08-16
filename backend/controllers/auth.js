@@ -56,7 +56,9 @@ const generateToken = async (user, statusCode, res) => {
     const time = 72000
     const options = {
         httpOnly: true,
-        expires: new Date(Date.now() + time)
+        expires: new Date(Date.now() + time),
+        secure: true,
+        sameSite: 'none'
     };
     res.status(statusCode)
         .cookie('token', token, options)

@@ -11,15 +11,6 @@ const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
 const cors = require("cors");
 
-// setting cors
-const corsOptions = {
-    origin: 'https://map-pins.netlify.app',
-    preflightContinue:false,
-    credentials: true,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  }
-
-
 
 //Import Routes
 const Routes = require('./routes/routes');
@@ -29,7 +20,17 @@ dotenv.config();
 
 
 //middleware
-app.use(cors(corsOptions));
+app.use(
+    cors({
+      origin: [
+        "http://localhost:3000",
+        "https://yourfontend.netlify.app",
+      ],
+      credentials: true,
+    })
+  );
+
+
 app.use(express.json());
 app.use(helmet());
 app.use(bodyParser.json());
