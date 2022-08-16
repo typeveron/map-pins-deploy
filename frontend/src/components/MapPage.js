@@ -16,6 +16,7 @@ function MapPage() {
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [star, setStar] = useState(0);
+  const [data, setData] = useState([]);
   const [viewport, setViewport] = useState({
   });
 
@@ -79,15 +80,12 @@ function MapPage() {
       getPins();
   }, []);
 
-  // const getMe = async () => {
-  //   const res = await axios.get(process.env.REACT_APP);
-  //   axios.defaults.withCredentials = true
-  //   setData(res);
-  // }
 
-  useEffect(() => {
-      fetch(process.env.REACT_APP)
-      .then(res => {
+  useEffect(()=>{
+     fetch(process.env.REACT_APP_USER, {
+        credentials: 'include',
+     })
+    .then(res => {
       return res.json()
     })
     .then(result=>{
