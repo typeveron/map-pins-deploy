@@ -82,6 +82,7 @@ function MapPage() {
   useEffect(()=>{
     fetch(process.env.REACT_APP_USER, {
       credentials: 'include'
+    })
     .then(res => {
       return res.json()
     })
@@ -92,7 +93,6 @@ function MapPage() {
     .catch(error => {
       console.log(error);
     })
-  })
 },[]);
 
 

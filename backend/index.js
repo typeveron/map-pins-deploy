@@ -24,7 +24,7 @@ app.use(
     cors({
       origin: [
         "http://localhost:3000",
-        "https://yourfontend.netlify.app",
+        "https://map-pins.netlify.app",
       ],
       credentials: true,
     })
