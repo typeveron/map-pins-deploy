@@ -81,16 +81,17 @@ function MapPage() {
   }, []);
 
   const getMe = async () => {
-    const res = await axios.get(process.env.REACT_APP);
+    const {data} = await axios.get(process.env.REACT_APP);
     axios.defaults.withCredentials = true
-    setData(res);
+    setData(data);
   }
 
-  useEffect(()=>{
-    getMe()
-    .then(res => {
+  useEffect(() => {
+    getMe();
+  })
+
+  useEffect((res)=>{
       return res.json()
-    })
     .then(result=>{
       console.log(result);
       setProfile(result.user);
