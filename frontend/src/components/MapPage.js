@@ -88,7 +88,7 @@ function MapPage() {
 
   useEffect(() => {
     getMe();
-  })
+  }, []);
 
   useEffect((res)=>{
       return res.json()
