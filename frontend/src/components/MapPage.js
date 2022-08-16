@@ -81,9 +81,9 @@ function MapPage() {
   }, []);
 
   const getMe = async () => {
-    const {data} = await axios.get(process.env.REACT_APP);
+    const res = await axios.get(process.env.REACT_APP);
     axios.defaults.withCredentials = true
-    setData(data);
+    setData(res);
   }
 
   useEffect(()=>{
