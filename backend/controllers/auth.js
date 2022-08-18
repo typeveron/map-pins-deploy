@@ -90,9 +90,13 @@ exports.singleUser = async (req, res, next)=> {
 
 //User Profile
 exports.userProfile = async (req,res,next) => {
+    try {
         const user = await User.findById(req.params.id);
         res.status(200).json({
         success: true,
         user
     })
+} catch (error) {
+    next(error);
+}
 }

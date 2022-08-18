@@ -81,21 +81,22 @@ function MapPage() {
 
 
   useEffect(()=>{
-     fetch(process.env.REACT_APP_USER, {
-        credentials: 'include',
-     })
+    let user = localStorage.getItem('token')
+    let userId = user._id
+    fetch(`${process.env.REACT_APP_USER}/${userId}`, {
+    credentials: 'include',
+    })
     .then(res => {
-      return res.json()
+    return res.json()
     })
     .then(result=>{
-      console.log(result);
-      setProfile(result.user);
+    console.log(result);
+    setProfile(result.user);
     })
     .catch(error => {
-      console.log(error);
+    console.log(error);
     })
-},[]);
-
+    },[]);
 
 
   const logOut = () => {
