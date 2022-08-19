@@ -82,7 +82,9 @@ function MapPage() {
 
   useEffect(()=>{
     let user = localStorage.getItem('token')
-    let userId = user._id
+    console.log("==> 1 ::",user);
+    console.log("==> 2 ::",JSON.parse(user));
+    let userId = JSON.parse(user)._id
     fetch(`${process.env.REACT_APP_USER}/${userId}`, {
     credentials: 'include',
     })
