@@ -27,7 +27,6 @@ export default function Login() {
           const {data} = await axios.post(process.env.REACT_APP_LOGIN, {
             username, password
           });
-          console.log(data);
 
           if (data.success === true) {
             setValues({username: '', password: ''})
@@ -39,8 +38,8 @@ export default function Login() {
             navigate("/map");
           }
       } catch (err) {
-        toast.error(err.response.data.error);
-        console.log(`This is the error: ${err.response.data.error}`);
+        toast.error(err);
+        console.log(`This is the error: ${err}`);
       }
     } 
 

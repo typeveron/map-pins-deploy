@@ -6,9 +6,9 @@ const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        minlength: [3, 'Username must have at least 3 characters'],
+        minlength: [3, "Username must have at least 3 characters"],
         max: 20,
-        unique: true,
+        unique: true
     },
     email: {
         type: String,
@@ -19,7 +19,8 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 6,
+        minlength: [6, "Password must have at least 6 characters"],
+        match: [ /((?=.*[A-Z]))/, "Password must have at least 1 uppercase letter"],
     },
   },
 { timestamps: true }

@@ -41,13 +41,13 @@ app.use("/api", Routes);
 
 //welcome message 
 app.get('/', (req,res) => {
-    console.log("Welcome to the API.")
+    res.json("Welcome to the API.");
 });
 
 
 
 app.get('/greeting', (req,res) => {
-    res.json({greeting: 'Hello there'})
+    res.json({greeting: 'Hello there'});
 });
 
 
