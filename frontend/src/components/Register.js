@@ -27,11 +27,11 @@ export default function Register() {
             //save user in local storage
             if (typeof window !== "undefined") {
               localStorage.setItem("token", JSON.stringify(data));
-              navigate("/map");
             }
+            navigate("/map");
       } catch (err) {
         toast.error(err.response.data.error);
-        console.log("Register error", err.response.data.error);
+        console.log("Register error", err);
       }
   }
   

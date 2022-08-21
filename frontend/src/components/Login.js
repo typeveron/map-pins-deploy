@@ -35,12 +35,12 @@ export default function Login() {
             //save user in local storage
             if (typeof window !== "undefined") {
               localStorage.setItem("token", JSON.stringify(data));
-              navigate("/map");
             }
+            navigate("/map");
           }
       } catch (err) {
         toast.error(err.response.data.error);
-        console.log("Login error", err.response.data.error)
+        console.log(err);
       }
     } 
 
