@@ -38,10 +38,7 @@ function MapPage() {
       long
     });
   } catch (err) {
-    console.log(`this is the error: ${err}`);
-    //gives me lat and long coordinates
-    console.log(e.lngLat);
-    console.log(e);
+    toast.error(err.response.data.error);
   }
   };
 
@@ -63,7 +60,7 @@ function MapPage() {
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.error);
     }
   };
 
