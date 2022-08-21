@@ -34,12 +34,13 @@ export default function Login() {
             toast.success("Sign in successfully");
             //save user in local storage
             if (typeof window !== "undefined") {
-              localStorage.setItem("token", JSON.stringify(data))
+              localStorage.setItem("token", JSON.stringify(data));
+              navigate("/map");
             }
-            navigate("/map");
           }
       } catch (err) {
         toast.error(err.response.data.error);
+        console.log("Login error", err.response.data.error)
       }
     } 
 
