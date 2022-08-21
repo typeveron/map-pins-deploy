@@ -38,8 +38,8 @@ export default function Login() {
             }
             navigate("/map");
           }
-      } catch (error) {
-        toast.error(error.response.data.error);
+      } catch (err) {
+        toast.error(err.response.data.error);
       }
     } 
 
