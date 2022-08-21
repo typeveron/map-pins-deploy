@@ -38,8 +38,8 @@ export default function Login() {
             navigate("/map");
           }
       } catch (err) {
-        toast.error(`There is an error ${err.response.data}`);
-        console.log(`This is the error: ${err.response.data}`);
+        toast.error(`There is an error ${err.response.data.error}`);
+        console.log(`This is the error: ${err.response.data.error}`);
       }
     } 
 
