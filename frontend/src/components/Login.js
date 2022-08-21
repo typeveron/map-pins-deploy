@@ -29,8 +29,13 @@ export default function Login() {
           });
 
           if (data.success === true) {
-            setValues({username: '', password: ''});
-            toast.success("Sign in successfully")
+            setValues({username: '', password: ''})
+            toast.success("Sign in successfully");
+            //save user in local storage
+            if (typeof window !== "undefined") {
+              localStorage.setItem("token", JSON.stringify(data));
+            }
+            navigate("/map");
           }
       } catch (err) {
         console.log(`This is the error: ${err.response.data.error}`);
