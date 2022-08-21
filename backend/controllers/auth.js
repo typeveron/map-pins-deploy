@@ -53,10 +53,9 @@ exports.signin = async (req, res, next)=> {
 
 const generateToken = async (user, statusCode, res) => {
     const token = await user.jwtGenerateToken();
-    const time = 7200000;
     const options = {
         httpOnly: true,
-        expires: new Date(Date.now() + time),
+        expires: new Date(Date.now() + process.env.TIME),
         secure: true,
         sameSite: 'none'
     };

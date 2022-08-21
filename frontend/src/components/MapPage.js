@@ -80,23 +80,23 @@ function MapPage() {
   }, []);
 
 
-  // useEffect(()=>{
-  //   let resultToken = JSON.parse(localStorage.getItem('token'))
-  //   let userId = resultToken.user['_id']
-  //   fetch(`${process.env.REACT_APP_USER}/${userId}`, {
-  //   credentials: 'include',
-  //   })
-  //   .then(res => {
-  //   return res.json()
-  //   })
-  //   .then(result=>{
-  //   console.log(result);
-  //   setProfile(result.user);
-  //   })
-  //   .catch(error => {
-  //   console.log(error);
-  //   })
-  //   },[]);
+  useEffect(()=>{
+    let resultToken = JSON.parse(localStorage.getItem('token'))
+    let userId = resultToken.user['_id']
+    fetch(`${process.env.REACT_APP_USER}/${userId}`, {
+    credentials: 'include',
+    })
+    .then(res => {
+    return res.json()
+    })
+    .then(result=>{
+    console.log(result);
+    setProfile(result.user);
+    })
+    .catch(error => {
+    console.log(error);
+    })
+    },[]);
 
 
   const logOut = () => {
