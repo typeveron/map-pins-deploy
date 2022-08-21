@@ -91,7 +91,7 @@ function MapPage() {
     })
     .then(result=>{
     console.log(setProfile(result.user));
-    //setProfile(result.user);
+    setProfile(result.user);
     })
     .catch(error => {
     console.log(error);

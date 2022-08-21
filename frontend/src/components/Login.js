@@ -39,6 +39,9 @@ export default function Login() {
           }
       } catch (err) {
         console.log(`This is the error: ${err.response.data.error}`);
+        console.log(err);
+        console.log(err.response);
+        console.log(err.response.data);
         toast.error(`There is an error: ${err.response.data.error}`);
       }
     } 
