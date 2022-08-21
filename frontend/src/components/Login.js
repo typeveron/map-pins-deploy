@@ -40,7 +40,7 @@ export default function Login() {
           }
       } catch (err) {
         toast.error(err.response.data.error);
-        console.log(err);
+        console.log(`This is the error: ${err.response.data.error}`);
       }
     } 
 

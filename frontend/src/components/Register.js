@@ -31,7 +31,7 @@ export default function Register() {
             navigate("/map");
       } catch (err) {
         toast.error(err.response.data.error);
-        console.log("Register error", err);
+        console.log(`This is the error: ${err.response.data.error}`);
       }
   }
   
