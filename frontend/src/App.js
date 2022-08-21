@@ -15,7 +15,7 @@ import {
 function App() {
 
   return (
-    <Fragment>
+    <>
     <ToastContainer/>
     <BrowserRouter>
     <Routes>
@@ -27,7 +27,7 @@ function App() {
     />
     </Routes>
     </BrowserRouter>
-    </Fragment>
+    </>
   );
 }
 

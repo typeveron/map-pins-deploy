@@ -39,7 +39,7 @@ export default function Login() {
           }
       } catch (err) {
         console.log(`This is the error: ${err.response.data.error}`);
-        toast.error(`There is an error ${err.response.data.error}`);
+        toast.error(`There is an error: ${err.response.data.error}`);
       }
     } 
 
@@ -53,7 +53,7 @@ export default function Login() {
     <form className='loginForm'>
     <input type='text' className='usernameE' placeholder='username' onChange={handleChange('username')}/>
     <input type='password' className='passwordE' placeholder='password' onChange={handleChange('password')} />
-    <button className='loginBtn' onClick={handleSubmit}>Login</button>
+    <button className='loginBtn' onClick={handleSubmit} type="submit">Login</button>
     <button onClick={() => navigate('/register')} className="loginRegister">
     Sign Up
     </button>

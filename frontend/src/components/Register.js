@@ -31,7 +31,7 @@ export default function Register() {
             navigate("/map");
       } catch (err) {
         console.log(`This is the error: ${err.response.data.error}`);
-        toast.error(`There is an error ${err.response.data.error}`);
+        toast.error(`There is an error: ${err.response.data.error}`);
       }
   }
   
@@ -44,7 +44,7 @@ export default function Register() {
     <input type='text' className='textR' placeholder='username' ref={nameRef}/>
     <input type='email' className='emailR' placeholder='email' ref={emailRef}/>
     <input type='password' className='passwordR' placeholder='password' ref={passwordRef}/>
-    <button className='registerBtn'>Register</button>
+    <button className='registerBtn' type="submit">Register</button>
     <button onClick={() => navigate('/')} className='backToLogin'>Back To Login</button>
     </form>
     </div>
