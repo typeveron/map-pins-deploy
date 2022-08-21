@@ -81,10 +81,8 @@ function MapPage() {
 
 
   useEffect(()=>{
-    let user = localStorage.getItem('token')
-    console.log("==> 1 ::",user);
-    console.log("==> 2 ::",JSON.parse(user));
-    let userId = JSON.parse(user)._id
+    let resultToken = JSON.parse(localStorage.getItem('token'))
+    let userId = resultToken.user['_id']
     fetch(`${process.env.REACT_APP_USER}/${userId}`, {
     credentials: 'include',
     })
@@ -92,8 +90,8 @@ function MapPage() {
     return res.json()
     })
     .then(result=>{
-    console.log(result);
-    setProfile(result.user);
+    console.log(setProfile(result.user));
+    //setProfile(result.user);
     })
     .catch(error => {
     console.log(error);
