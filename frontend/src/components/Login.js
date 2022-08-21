@@ -39,7 +39,6 @@ export default function Login() {
             navigate("/map");
           }
       } catch (error) {
-        console.log("this is the error: " , error);
         toast.error(error.response.data.error);
       }
     } 

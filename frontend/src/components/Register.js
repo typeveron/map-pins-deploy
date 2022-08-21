@@ -29,9 +29,8 @@ export default function Register() {
               localStorage.setItem("token", JSON.stringify(data))
             }
           navigate("/map");
-      } catch (err) {
-        toast.error(err.response.data.error);
-        console.log(err);
+      } catch (error) {
+        toast.error(error.response.data.error);
       }
   }
   
