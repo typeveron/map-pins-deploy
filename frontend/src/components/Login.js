@@ -40,6 +40,8 @@ export default function Login() {
             navigate("/map");
           }
       } catch (err) {
+        console.log(err.response.status);
+        console.log(err.response.headers);
         console.log(`This is the error: ${err.response.data.error}`);
         toast.error(`There is an error: ${err.response.data.error}`);
       }
