@@ -28,7 +28,7 @@ export default function Login() {
             username, password
           });
 
-          console.log("This is the data: ", data);
+          console.log(`This is the data for the request ${data}`);
 
           if (data.success === true) {
             setValues({username: '', password: ''})
@@ -42,6 +42,7 @@ export default function Login() {
       } catch (err) {
         console.log(err.response.status);
         console.log(err.response.headers);
+        console.log(err.response.message);
         console.log(`This is the error: ${err.response.data.error}`);
         toast.error(`There is an error: ${err.response.data.error}`);
       }
