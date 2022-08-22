@@ -53,8 +53,8 @@ export default function Login() {
     <AddLocationAltIcon/>
     Pin
     <form className='loginForm'>
-    <input type='text' className='usernameE' placeholder='username' onChange={handleChange('username')}/>
-    <input type='password' className='passwordE' placeholder='password' onChange={handleChange('password')} />
+    <input type='text' className='usernameE' placeholder='username' onChange={handleChange("username")}/>
+    <input type='password' className='passwordE' placeholder='password' onChange={handleChange("password")} />
     <button className='loginBtn' onClick={handleSubmit} type="submit">Login</button>
     <button onClick={() => navigate('/register')} className="loginRegister">
     Sign Up
