@@ -28,6 +28,8 @@ export default function Login() {
             username, password
           });
 
+          console.log("This is the data: ", data);
+
           if (data.success === true) {
             setValues({username: '', password: ''})
             toast.success("Sign in successfully");

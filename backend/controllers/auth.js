@@ -32,13 +32,13 @@ exports.signin = async (req, res, next)=> {
         //check username
         const user = await User.findOne({username});
         if (!user) {
-            return next(new ErrorResponse(`Invalid credentials`, 404))
+            return next(new ErrorResponse(`Invalid username`, 404))
         }
 
         //verify user password
         const isMatched = await user.comparePassword(password);
         if (!isMatched) {
-            return next(new ErrorResponse(`Cannot log in, check your credentials`, 404))
+            return next(new ErrorResponse(`Cannot log in, check your password`, 404))
         }
 
         generateToken(user, 200, res);
