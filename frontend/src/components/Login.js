@@ -44,19 +44,8 @@ export default function Login() {
             console.log(data.message);
             toast.error(`There is an error: ${data.message}`);
           }
-      } catch (err) {
-        //404
-        console.log(err.response.status);
-        //object
-        console.log(err.response.headers);
-        //undefined
-        console.log(err.response.message); 
-        //undefined
-        console.log(`This is the error: ${err.response.data.error}`);
-        //undefined
-        toast.error(`There is an error: ${err.response.data.error}`);
-      }
     } 
+  }
 
 
   
