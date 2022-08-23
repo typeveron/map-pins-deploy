@@ -38,7 +38,17 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use("/api", Routes);
-
+//ERROR HANDLING
+app.use(function(err, req, res, next) {
+  if(!err) return next(); // you also need this line
+  console.log(err);
+  let returnObj = {
+    statusCode:err['statusCode'],
+    message:err['message']
+  }
+  res.status(err['statusCode']);
+  res.send(returnObj);
+});
 
 //welcome message 
 app.get('/', (req,res) => {
