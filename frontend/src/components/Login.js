@@ -28,6 +28,7 @@ export default function Login() {
             username, password
           });
 
+          //no log of data
           console.log(`This is the data for the request ${data}`);
 
           if (data.success === true) {
@@ -40,10 +41,15 @@ export default function Login() {
             navigate("/map");
           }
       } catch (err) {
+        //404
         console.log(err.response.status);
+        //object
         console.log(err.response.headers);
-        console.log(err.response.message);
+        //undefined
+        console.log(err.response.message); 
+        //undefined
         console.log(`This is the error: ${err.response.data.error}`);
+        //undefined
         toast.error(`There is an error: ${err.response.data.error}`);
       }
     } 
