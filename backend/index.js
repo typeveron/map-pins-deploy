@@ -38,6 +38,7 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use("/api", Routes);
+
 //ERROR HANDLING
 app.use(function(err, req, res, next) {
   if(!err) return next(); // you also need this line
