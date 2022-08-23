@@ -23,7 +23,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-      try {
           const {data} = await axios.post(process.env.REACT_APP_LOGIN, {
             username, password
           });
@@ -44,7 +43,6 @@ export default function Login() {
             console.log(data.message);
             toast.error(`There is an error: ${data.message}`);
           }
-    } 
   }
 
 
