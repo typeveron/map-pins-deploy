@@ -39,6 +39,10 @@ export default function Login() {
               localStorage.setItem("token", JSON.stringify(data));
             }
             navigate("/map");
+          } else {
+            console.log(data);
+            console.log(data.message);
+            toast.error(`There is an error: ${data.message}`);
           }
       } catch (err) {
         //404
