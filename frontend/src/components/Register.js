@@ -30,6 +30,7 @@ export default function Register() {
             }
             navigate("/map");
       } catch (err) {
+        console.log(err.response.data.statusCode);
         console.log(`This is the error: ${err.response.data.error}`);
         toast.error(`There is an error: ${err.response.data.error}`);
       }
