@@ -27,25 +27,25 @@ exports.signin = async (req, res, next)=> {
         const {username, password} = req.body;
         //if no username and password
         if (!username || !password) {
-            return next(new ErrorResponse(`Username and password are required`, 404))
+            return next(new ErrorResponse(`Username and password are required`, 400))
         }
         //check username
         const user = await User.findOne({username});
         if (!user) {
-            return next(new ErrorResponse(`Invalid username`, 404))
+            return next(new ErrorResponse(`Invalid username`, 400))
         }
 
         //verify user password
         const isMatched = await user.comparePassword(password);
         if (!isMatched) {
-            return next(new ErrorResponse(`Cannot log in, check your password`, 404))
+            return next(new ErrorResponse(`Cannot log in, check your password`, 400))
         }
 
         generateToken(user, 200, res);
         
     } catch (error) {
         console.log(error);
-        return next(new ErrorResponse(`Cannot log in, check your credentials`, 404))
+        return next(new ErrorResponse(`Cannot log in, check your credentials`, 400))
     }
 
 }
