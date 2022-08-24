@@ -15,13 +15,16 @@ export default function Register() {
   const handleSubmit = async (e) => {
       //does not refresh page
       e.preventDefault();
-      const newUser = {
+      try {
+        const newUser = {
           username: nameRef.current.value,
           email: emailRef.current.value,
           password: passwordRef.current.value,
       };
+      //no log of data
+      console.log(`This is the data for the request ${data}`);
 
-      try {
+
          const {data} = await axios.post(process.env.REACT_APP_REGISTER, newUser);
          toast.success("Sign in successfully");
             //save user in local storage
