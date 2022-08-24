@@ -38,7 +38,7 @@ export default function Login() {
             }
             navigate("/map");
           }
-      } catch() {
+      } catch (err) {
           console.log(err.response.data.statusCode);
           console.log(`This is the error: ${err.response.data.message}`);
           toast.error(`Error: ${err.response.data.message}`);
