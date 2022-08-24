@@ -23,13 +23,12 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
+      try {
           const {data} = await axios.post(process.env.REACT_APP_LOGIN, {
             username, password
           });
-
           //no log of data
           console.log(`This is the data for the request ${data}`);
-
           if (data.success === true) {
             setValues({username: '', password: ''})
             toast.success("Sign in successfully");
@@ -38,11 +37,12 @@ export default function Login() {
               localStorage.setItem("token", JSON.stringify(data));
             }
             navigate("/map");
-          } else {
-            console.log(data);
-            console.log(data.message);
-            toast.error(`There is an error: ${data.message}`);
           }
+      } catch() {
+          console.log(err.response.data.statusCode);
+          console.log(`This is the error: ${err.response.data.message}`);
+          toast.error(`Error: ${err.response.data.message}`);
+      }
   }
 
 
