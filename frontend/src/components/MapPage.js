@@ -25,9 +25,7 @@ function MapPage() {
   //handles popup click
   const handleMarkerClick = (id, lat, long) => {
     setCurrentPlaceId(id);
-    console.log("click being called.", lat, long);
     setViewport({ ...viewport, latitude: lat, longitude: long });
-    console.log(viewport);
   };
 
   const handleDoubleClick = (e) => {
@@ -38,7 +36,7 @@ function MapPage() {
       long
     });
   } catch (err) {
-    toast.error(err.response.data.error);
+    console.log(err);
   }
   };
 
@@ -60,7 +58,7 @@ function MapPage() {
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
-      toast.error(err.response.data.error);
+      console.log(err);
     }
   };
 
@@ -87,11 +85,9 @@ function MapPage() {
     return res.json()
     })
     .then(result=>{
-    console.log(setProfile(result.user));
     setProfile(result.user);
     })
     .catch(error => {
-    console.log(error);
     })
     },[]);
 

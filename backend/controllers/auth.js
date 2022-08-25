@@ -41,6 +41,10 @@ exports.signin = async (req, res, next)=> {
             return next(new ErrorResponse(`Cannot log in, check your password`, 400))
         }
 
+        if (!user && !isMatched) {
+            return next(new ErrorResponse(`Invalid username and password`,400))
+        }
+
         generateToken(user, 200, res);
         
     } catch (error) {
