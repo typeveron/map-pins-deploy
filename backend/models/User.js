@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const ErrorResponse = require("../utils/errorResponse");
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -29,6 +30,17 @@ const UserSchema = new mongoose.Schema({
   },
 { timestamps: true }
 );
+
+//Schema validation 
+UserSchema.post('save', function(error, doc, next) {
+    if (error.name == "ValidationError") {
+        next(new ErrorResponse(error.message, 400));
+    } else if(error.name == "MongoServerError"){
+        next(new ErrorResponse(error.message, 400));
+    } else if(!error){
+        next();
+    }
+});
 
 //encrypting password before saving
 UserSchema.pre('save', async function(next) {
